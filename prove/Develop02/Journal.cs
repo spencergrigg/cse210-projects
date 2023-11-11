@@ -9,11 +9,10 @@ public class Journal
                 }
                 public void DisplayAll()
                 {
-
-        foreach (Entry entry in _entries)
-        {
-            entry.Display();
-        }
+                        foreach (Entry entry in _entries)
+                        {
+                            entry.Display();
+                        }
                 } 
                 public void SaveToFile(string file)
                 {
