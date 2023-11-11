@@ -5,7 +5,17 @@ class Program
     static void Main(string[] args)
     {
         Journal theJournal = new Journal();
+        theJournal._entries =  = new List<Entry>();
+        fileName = Console.ReadLine();
+        theJournal.SaveToFile(fileName);
+        theJournal.LoadFromFile(fileName);
+        theJournal.DisplayAll();
+        
         Entry anEntry = new Entry();
+        PromptGenerator thePrompt = new PromptGenerator();
+        anEntry._promptText =  GetRandomPrompt();
+        anEntry.date = (DateTime.Now).ToShortDateString();
+        anEntry._entryText = Console.Readline();
         
         anEntry.Display();
     }
