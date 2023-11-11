@@ -11,9 +11,10 @@ class Program
         theJournal.LoadFromFile(fileName);
         theJournal.DisplayAll();
         
-        Entry anEntry = new Entry();
         PromptGenerator thePrompt = new PromptGenerator();
-        anEntry._promptText =  GetRandomPrompt();
+        
+        Entry anEntry = new Entry();
+        anEntry._promptText =  thePrompt.GetRandomPrompt();
         anEntry.date = (DateTime.Now).ToShortDateString();
         anEntry._entryText = Console.Readline();
         
