@@ -39,6 +39,8 @@ class Program
                     case "1":
                         anEntry._promptText =  thePrompt.GetRandomPrompt();
                         anEntry._date = (DateTime.Now).ToShortDateString();
+                        Console.WriteLine("What was your level of happiness today?");
+                        anEntry._happinessLevel = Console.ReadLine();
                         Console.WriteLine(anEntry._promptText);
                         anEntry._entryText = Console.ReadLine();
                         theJournal.AddEntry(anEntry);
