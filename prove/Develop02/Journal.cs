@@ -1,11 +1,13 @@
 using System.IO;
+using System.IO.Enumeration;
 public class Journal
         {
                 public List<Entry> _entries;
+                public string fileName;
 
                 public void AddEntry(Entry newEntry)
                 {
-                        _entries.Add(newEntry)
+                        _entries.Add(newEntry);
                 }
                 public void DisplayAll()
                 {
@@ -14,18 +16,21 @@ public class Journal
                             entry.Display();
                         }
                 } 
-                public void SaveToFile(string file, string anEntry)
+                public void SaveToFile(string fileName)
                 {
 
 
                     using (StreamWriter outputFile = new StreamWriter(fileName))
                         {
                             // You can add text to the file with the WriteLine method
-                            outputFile.WriteLine(anEntry);
+                        foreach (Entry entry in _entries)
+                            {
+                            outputFile.WriteLine(entry);
+                            }
                         }
                 }
 
-                public void LoadFromFile(string file)
+                public void LoadFromFile(string fileName)
                 {
                     //Console.Out.WriteLine("What is the name of the file you would like to load from?");
                     //string fileName = (Console.ReadLine());

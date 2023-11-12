@@ -10,6 +10,3 @@ public class PromptGenerator
 
 }
 
-
-    //var list = new List<string>{ "one","two","three","four"};
-//    public List<string> _prompts = new List<string>({ "one", "two", });

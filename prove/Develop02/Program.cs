@@ -1,24 +1,71 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Journal theJournal = new Journal();
-        theJournal._entries =  = new List<Entry>();
-        fileName = Console.ReadLine();
-        theJournal.SaveToFile(fileName);
-        theJournal.LoadFromFile(fileName);
-        theJournal.DisplayAll();
         
+        //Establishes an object for the PromptGenerator class
         PromptGenerator thePrompt = new PromptGenerator();
         
+        //Establishes an object for the Entry class 
         Entry anEntry = new Entry();
-        anEntry._promptText =  thePrompt.GetRandomPrompt();
-        anEntry.date = (DateTime.Now).ToShortDateString();
-        anEntry._entryText = Console.Readline();
         
-        anEntry.Display();
+
+    
+        //establishes code for theJournal class and functions
+        Journal theJournal = new Journal();
+        theJournal._entries = new List<Entry>();
+
+
+        //User run code
+        Console.WriteLine("Welcome to the Journal App");
+        string menu = @"Please select one of the following choices:
+        1. Write
+        2. Display
+        3. Load
+        4. Save
+        5. Quit
+        What would you like to do?";
+        Console.WriteLine(menu);
+        string option = Console.ReadLine();
+
+        while (option != "5")
+            {
+                switch (option) 
+                {
+                    case "1":
+                        anEntry._promptText =  thePrompt.GetRandomPrompt();
+                        anEntry._date = (DateTime.Now).ToShortDateString();
+                        Console.WriteLine(anEntry._promptText);
+                        anEntry._entryText = Console.ReadLine();
+                        theJournal.AddEntry(anEntry);
+                        //anEntry.Display();
+                        
+                        break;
+                    case "2":
+                        theJournal.DisplayAll();
+                        break;
+                    case "3":
+                        Console.WriteLine("Please enter the name of the file.");
+                        string fileName = Console.ReadLine();
+                        theJournal.LoadFromFile(fileName);
+                        break;
+                    case "4":
+                        Console.WriteLine("Please enter the name of the file.");
+                        string saveFile = Console.ReadLine();
+                        theJournal.SaveToFile(saveFile);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Please enter a number from 1 to 5.");
+                        break;
+                    }
+                Console.WriteLine(menu);
+                option = Console.ReadLine();
+            }
+        Console.Write("Goodbye...");
     }
 }
 
