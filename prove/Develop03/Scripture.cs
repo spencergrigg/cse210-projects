@@ -14,7 +14,7 @@ class Scripture{
     public void HideRandomWords(int numberToHide){
         Random randomNumber = new ();
         int index = randomNumber.Next(_words.Count);
-        for (int i = 0; index < numberToHide; i ++){
+        for (int i = 0; i < numberToHide; i ++){
             index = randomNumber.Next(_words.Count);
             _words[index].Hide();
         }

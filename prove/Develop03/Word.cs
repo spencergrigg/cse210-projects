@@ -10,7 +10,6 @@ class Word{
 
     public void Hide(){
         _text = new string('_', _text.Length);
-        Console.Write($"{_text} ");
     }
 
     public void Show(){

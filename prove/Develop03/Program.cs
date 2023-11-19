@@ -4,20 +4,20 @@ class Program
 {
     static void Main(string[] args)
     {
-    
-    //Welcomes the user and explains the program
-    Console.WriteLine("Welcome to the Scripture Memorizer Program!");
-    Console.WriteLine("--------------------------------------------------------------------------");
-
 
     //Creates objects for the Reference and Scripture classes
         Reference reference1 = new Reference("Proverbs", 3, 5, 6);
         Scripture scripture1 = new Scripture(reference1, "Lean not unto thine understanding, but look unto the Lord.");
+    
+    //Welcomes the user and explains the program
+    Console.WriteLine("--------------------------------------------------------------------------");
+    Console.WriteLine("Welcome to the Scripture Memorizer Program! Please press enter to start:");
+
 
         //Executes the program
-        string originalInput = Console.ReadLine();
+        // string originalInput = Console.ReadLine();
         while (Console.ReadLine() != "quit"){
-            //scripture1.IsCompletelyHidden();
+            scripture1.IsCompletelyHidden();
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             Console.Write($"{reference1.GetDisplayText()} ");
             Console.WriteLine(scripture1.GetDisplayText());
