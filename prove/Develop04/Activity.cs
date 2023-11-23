@@ -1,5 +1,4 @@
-using Microsoft.VisualBasic;
-
+using System;
 public class Activity{
     protected string _name;
     protected string _description;
@@ -12,24 +11,25 @@ public class Activity{
 
     }
     
-    private void ShowSpinner(int seconds){
+    public void ShowSpinner(int seconds){
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(seconds);
+        DateTime endTime = startTime.AddSeconds(seconds);
         int i = 0;
         List<string> animationStrings = new List<string>();
-        DateTime currentTime = DateTime.Now;
 
         animationStrings.Add("|");
         animationStrings.Add("/");
         animationStrings.Add("–");
         animationStrings.Add("\\");
-        animationStrings.Add("|");
 
-        while (currentTime < futureTime){
+
+        while (DateTime.Now < endTime){
             string s = animationStrings[i];
             Console.Write(s);
             Thread.Sleep(1000);
-            Console.Write("\b \b");
+            //Console.Write("\b \b");
+            i++;
+
         if (i >= animationStrings.Count){
             i = 0;
         }
