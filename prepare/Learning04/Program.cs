@@ -4,18 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Assignment ass1 = new Assignment();
-        //Console.WriteLine(ass1.GetSummary());
+        //Assignment assignment1 = new Assignment();
+        //Console.WriteLine(assignment1.GetSummary());
 
-        Assignment ass2 = new Assignment("Bob Jones", "Math");
-        Console.WriteLine(ass2.GetSummary());    
+        Assignment assignment2 = new Assignment("Bob Jones", "Math");
+        Console.WriteLine(assignment2.GetSummary());    
 
-        MathAssignment mass1 = new MathAssignment("Frank Joe", "Calculus 1", "Section 1", "Problems 1-10");
-        Console.Write(mass1.GetSummary());
-        Console.WriteLine(mass1.GetHomeworkList());
+        MathAssignment math1 = new MathAssignment("Frank Joe", "Calculus 1", "Section 1", "Problems 1-10");
+        Console.Write(math1.GetSummary());
+        Console.WriteLine(math1.GetHomeworkList());
 
-        WritingAssignment wass1 = new WritingAssignment("Elly Mae", "ELA 4", "Write an Essay");
-        Console.Write(wass1.GetSummary());
-        Console.WriteLine(wass1.GetWritingInformation());
+        WritingAssignment writing1 = new WritingAssignment("Elly Mae", "ELA 4", "Write an Essay");
+        Console.Write(writing1.GetSummary());
+        Console.WriteLine(writing1.GetWritingInformation());
     }
 }
