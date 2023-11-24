@@ -1,54 +1,81 @@
 using System;
-public class Activity{
+using System.Runtime.CompilerServices;
+public class Activity
+{
     protected string _name;
     protected string _description;
     protected int _duration;
     
-    public void DisplayStartingMessage(){
-    }
-    
-    private void DisplayEndingMessage(){
+    public void DisplayStartingMessage()
+    {
+        Console.Clear();
+        Console.Write($@"
+Welcome to the {_name} Activity.
 
+{_description}
+
+How long, in seconds, would you like for your session? ");
     }
     
-    public void ShowSpinner(int seconds){
+    public void DisplayEndingMessage()
+    {
+        Console.Write($"Well done! Thank you for using our Mindfulness App.");
+        Thread.Sleep(5000);
+        Console.Clear();
+    }
+    
+    public void ShowSpinner(int seconds)
+    {
+        List<string> animationString = new List<string>();
+
+        animationString.Add("|");
+        animationString.Add("/");
+        animationString.Add("–");
+        animationString.Add("\\");
+
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
         int i = 0;
-        List<string> animationStrings = new List<string>();
 
-        animationStrings.Add("|");
-        animationStrings.Add("/");
-        animationStrings.Add("–");
-        animationStrings.Add("\\");
-
-
-        while (DateTime.Now < endTime){
-            string s = animationStrings[i];
+        if (seconds != 101)
+        {
+            Console.WriteLine("Get ready..."); 
+        }
+        while (DateTime.Now < endTime)
+        {
+            string s = animationString[i];
             Console.Write(s);
-            Thread.Sleep(1000);
-            //Console.Write("\b \b");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
             i++;
 
-        if (i >= animationStrings.Count){
+        if (i >= animationString.Count)
+        {
             i = 0;
         }
         }
+        Console.WriteLine("");
     }
-    public void ShowCountDown(int second){
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(second);
 
-        Thread.Sleep(3000);
 
-    DateTime currentTime = DateTime.Now;
-    if (currentTime < futureTime)
+    public void ShowCountDown(int second)
+    {
+        for (int i = second; i > 0; i--)
         {
-            Console.WriteLine("We have not arrived at our future time yet...");
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
         }
     }
     
-    public Activity(string name, string description, int duration){
+    public Activity()
+    {
+        _name = "";
+        _description = "";
+        _duration = 0;
+    }    
+    public Activity(string name, string description, int duration)
+    {
         _name = name;
         _description = description;
         _duration = duration;

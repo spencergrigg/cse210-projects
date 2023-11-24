@@ -9,7 +9,9 @@ class Word{
     }
 
     public void Hide(){
+        if (!IsHidden()){
         _text = new string('_', _text.Length);
+        }
     }
 
     public void Show(){
