@@ -35,7 +35,7 @@ public class ListingActivity : Activity{
     }
 
     public void GetList(){
-        int responseCount = 0;
+        _count = 0;
         
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
@@ -43,10 +43,10 @@ public class ListingActivity : Activity{
         {
         Console.Write("> ");
         Console.ReadLine();
-        responseCount ++;
+        _count ++;
         }
 
-        Console.WriteLine($"Well done! You wrote {responseCount} entries.");
+        Console.WriteLine($"Well done! You wrote {_count} entries.");
         Thread.Sleep(2000);
     }
 }

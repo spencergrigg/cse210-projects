@@ -57,6 +57,34 @@ How long, in seconds, would you like for your session? ");
         Console.WriteLine("");
     }
 
+public void ShowBreath(int seconds)
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+        int i = 0;
+        Console.Write("()");
+        while (DateTime.Now < endTime){
+            Thread.Sleep(1000);
+            Console.Write("\b )");
+            i++;
+        }
+        Console.WriteLine("");
+    }
+
+public void ShowExhale(int seconds)
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+        int i = 0;
+        Console.Write("(     )"); 
+        while (DateTime.Now < endTime){
+            Thread.Sleep(1000);
+            Console.Write("\b\b) \b");
+            i++;
+        }
+        Console.WriteLine("");
+    }
+
 
     public void ShowCountDown(int second)
     {

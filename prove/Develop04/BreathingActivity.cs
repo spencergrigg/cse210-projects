@@ -15,11 +15,11 @@ public BreathingActivity() : base(){
 
         for (int i = 0; i < _duration; i += 10){
             Console.Write("Breathe in..."); 
-            ShowCountDown(5);
+            ShowBreath(5);
             Console.WriteLine("");
 
             Console.Write("Now breathe out..."); 
-            ShowCountDown(5);
+            ShowExhale(5);
             Console.WriteLine("\n");
 
         }
