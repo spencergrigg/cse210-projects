@@ -1,3 +1,3 @@
-public class Gathering : Event{
+public class Gathering{
 
 }

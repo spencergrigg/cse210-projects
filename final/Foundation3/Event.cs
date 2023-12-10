@@ -13,18 +13,18 @@ public abstract class Event{
         _address = address;
     }
 
-    public virtual void DisplayStandard(){
+    public void DisplayStandard(){
         Console.WriteLine($"{_title}: {_description} {_time} {_address}");
     }
 
-    public virtual void DisplayFull(){
+    public void DisplayFull(){
         Console.WriteLine($"{_title}: {_description} {_time} {_address}");        
         //Lectures - name & capacity
         //Receptions - RSVP email
         //Gatherings - Weather statement
     }
 
-    public virtual void DisplayShort(){
+    public void DisplayShort(){
         Console.WriteLine($"{_title} {_date}");
         //Lists type, title and date
     }
