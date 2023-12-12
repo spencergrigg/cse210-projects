@@ -1,16 +1,18 @@
 public abstract class Event{
     private string _title;
     private string _description;
-    private int _date;
-    private int _time;
+    private string _date;
+    private string _time;
+    private string _type;
     private Address _address = new Address();
 
-    public Event(string title, string description, int date, int time, Address address){
+    public Event(string title, string description, string date, string time, Address address, string type){
         _title = title;
         _description = description;
         _date = date;
         _time = time;
         _address = address;
+        _type = type;
     }
 
     public void DisplayStandard(){
@@ -18,15 +20,13 @@ public abstract class Event{
     }
 
     public void DisplayFull(){
-        Console.WriteLine($"{_title}: {_description} {_time} {_address}");        
-        //Lectures - name & capacity
-        //Receptions - RSVP email
-        //Gatherings - Weather statement
+        DisplayStandard();
+        DisplayInfo();        
     }
 
     public void DisplayShort(){
-        Console.WriteLine($"{_title} {_date}");
-        //Lists type, title and date
+        Console.WriteLine($"{_type} {_title} {_date}");
     }
 
+    public abstract void DisplayInfo();
 }
