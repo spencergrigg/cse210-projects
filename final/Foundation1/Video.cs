@@ -4,6 +4,8 @@ public class Video{
     private string _title;
     private string _author;
     private int _length;
+    private double _minutes;
+    private double _seconds;
     public List<Comment> _comments = new List<Comment>();
 
     //Constructor
@@ -29,6 +31,7 @@ public class Video{
 Title: {_title}
 Author: {_author}
 Length: {_length} seconds
+Time: {CalculateMinuteLength()}
 Number of Comments: {GetCommentTotal()}
 --------------------------Comments--------------------------");
 foreach (Comment item in _comments)
@@ -37,4 +40,11 @@ foreach (Comment item in _comments)
 }
 Console.Write($"-----------------------Next Video-----------------------");
     }
+
+public string CalculateMinuteLength(){
+    _minutes = _length / 60 % 60;
+    _seconds = _length - (_minutes * 60);
+    return $"{_minutes}:{_seconds}";
+}
+
 }

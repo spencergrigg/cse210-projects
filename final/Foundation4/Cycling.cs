@@ -1,7 +1,9 @@
+using System.Data;
+
 public class Cycling : Activity{
     private double _speed;
 
-    public Cycling(string date, int minutes, double speed, string type): base(date, minutes, type){
+    public Cycling(string date, int minutes, double speed, string type, double record): base(date, minutes, type, record){
         _speed = speed;        
     }
 
@@ -16,4 +18,6 @@ public class Cycling : Activity{
     public override double GetPace(){
         return GetMinutes() / GetDistance();
     }
+
+
 }

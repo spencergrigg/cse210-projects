@@ -26,7 +26,9 @@ public class Order{
                 double _price = item.GetProductPrice();
                 _sum += _price;
             }
-        double _total = _sum + _shippingCost;
+        double _subtotal = _sum + _shippingCost;
+        double _total = _subtotal * 1.05;
+        Console.WriteLine($"Your subtotal is: ${Math.Round(_subtotal, 2)}");
         Console.WriteLine($"Your total is: ${Math.Round(_total, 2)}"); 
     }
 
